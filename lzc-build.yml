@@ -1,0 +1,7 @@
+# manifest: 指定 lpk 包的 manifest.yml 文件路径
+manifest: ./manifest.yml
+# pkgout: lpk 包的输出路径
+pkgout: ./
+# icon 指定 lpk 包 icon 的路径路径，如果不指定将会警告
+# icon 仅仅允许 png 后缀的文件
+icon: ./icon.png

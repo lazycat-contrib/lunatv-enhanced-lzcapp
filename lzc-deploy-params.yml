@@ -1,0 +1,20 @@
+params:
+  - id: admin_username
+    type: string
+    name: "admin user name"
+    description: "the admin user for login"
+
+  - id: admin_password
+    type: string
+    name: "admin user password"
+    description: "the admin user password for login"
+
+locales:
+  zh:
+    admin_username:
+      name: "管理员登录名"
+      description: "管理员的登录名"
+
+    admin_password:
+      name: "管理员密码"
+      description: "管理员密码"
