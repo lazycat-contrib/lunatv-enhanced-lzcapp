@@ -1,0 +1,30 @@
+application:
+  subdomain: lunatv-enhanced
+  background_task: true
+  public_path:
+    - /
+
+  upstreams:
+    - location: /
+      backend: http://lunatv-enhanced:3000/
+
+services:
+  lunatv-enhanced:
+    container_name: lunatv-enhanced
+    image: registry.lazycat.cloud/czyt/szemeng76/lunatv:a65df041f30011bb
+    environment:
+      - USERNAME={{ .U.admin_username }}
+      - PASSWORD={{ .U.admin_password }}
+      - NEXT_PUBLIC_STORAGE_TYPE=kvrocks
+      - KVROCKS_URL=redis://lunatv-kvrocks:6666
+    depends_on:
+      - lunatv-kvrocks
+
+  lunatv-kvrocks:
+    image: registry.lazycat.cloud/czyt/apache/kvrocks:2821d3ee858b63a9
+    container_name: lunatv-kvrocks
+    restart: unless-stopped
+    user: root
+    binds:
+      - /lzcapp/var/data:/var/lib/kvrocks/data
+    entrypoint: kvrocks -c /var/lib/kvrocks/kvrocks.conf --dir /var/lib/kvrocks/data --pidfile /var/run/kvrocks/kvrocks.pid --bind 0.0.0.0
