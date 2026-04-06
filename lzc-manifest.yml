@@ -11,7 +11,8 @@ application:
 services:
   lunatv-enhanced:
     container_name: lunatv-enhanced
-    image: registry.lazycat.cloud/czyt/szemeng76/lunatv:a65df041f30011bb
+    # ghcr.io/szemeng76/lunatv:6.3.0
+    image: registry.lazycat.cloud/czyt/szemeng76/lunatv:e52debbb84faad06
     environment:
       - USERNAME={{ .U.admin_username }}
       - PASSWORD={{ .U.admin_password }}
