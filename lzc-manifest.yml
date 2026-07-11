@@ -3,14 +3,13 @@ application:
   background_task: true
   public_path:
     - /
-
   upstreams:
     - location: /
       backend: http://lunatv-enhanced:3000/
-
 services:
   lunatv-enhanced:
     # ghcr.io/szemeng76/lunatv:6.6.2
+    # upstream: ghcr.io/szemeng76/lunatv:6.6.3
     image: registry.lazycat.cloud/czyt/szemeng76/lunatv:a614286c0e1ccce7
     environment:
       - USERNAME={{ .U.admin_username }}
@@ -19,7 +18,6 @@ services:
       - KVROCKS_URL=redis://lunatv-kvrocks:6666
     depends_on:
       - lunatv-kvrocks
-
   lunatv-kvrocks:
     image: registry.lazycat.cloud/czyt/apache/kvrocks:2821d3ee858b63a9
     user: root
