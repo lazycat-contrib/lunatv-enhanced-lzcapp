@@ -10,7 +10,6 @@ application:
 
 services:
   lunatv-enhanced:
-    container_name: lunatv-enhanced
     # ghcr.io/szemeng76/lunatv:6.6.2
     image: registry.lazycat.cloud/czyt/szemeng76/lunatv:a614286c0e1ccce7
     environment:
@@ -23,8 +22,6 @@ services:
 
   lunatv-kvrocks:
     image: registry.lazycat.cloud/czyt/apache/kvrocks:2821d3ee858b63a9
-    container_name: lunatv-kvrocks
-    restart: unless-stopped
     user: root
     binds:
       - /lzcapp/var/data:/var/lib/kvrocks/data
