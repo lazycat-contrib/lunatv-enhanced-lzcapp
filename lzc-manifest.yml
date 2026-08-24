@@ -9,8 +9,8 @@ application:
 services:
   lunatv-enhanced:
     # ghcr.io/szemeng76/lunatv:6.6.2
-    # upstream: ghcr.io/szemeng76/lunatv:6.6.3
-    image: registry.lazycat.cloud/czyt/szemeng76/lunatv:a614286c0e1ccce7
+    # upstream: ghcr.io/szemeng76/lunatv:6.6.4
+    image: registry.lazycat.cloud/czyt/szemeng76/lunatv:4aedad021a7750d7
     environment:
       - USERNAME={{ .U.admin_username }}
       - PASSWORD={{ .U.admin_password }}
